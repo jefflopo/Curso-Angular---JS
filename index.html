@@ -1,16 +1,43 @@
+<!doctype html>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html ng-app="CadClientes">
+<head>
+	<title>Cadastro de Clientes</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular/angular.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    
+    <script>
+        angular.module("CadClientes", []);
+        angular.module("CadClientes").controller("CadClientesCtrl", 
+        	function( $scope ){
+        		$scope.app = "Cadastro de Clientes";
+        		$scope.clientes = [
+        			{nome:"Jefferson", codigo: 001},
+        			{nome:"Paulo", codigo: 002},
+        			{nome:"Sandy", codigo: 003},
+        			{nome:"Heloisa", codigo: 004},
+        		];
+        });
+    </script>
+
+</head>
+<body ng-controller = "CadClientesCtrl">
+<!--  <div class="jumbotron"><h4 ng-bind = "app"></h4></div> -->
+<div class="jumbotron"><h3>{{app}}</h3>
+	<table class="table table-striped">
+		<tr>
+			<td><b>Nome</b></td>
+			<td><b>Código</b></td>
+		</tr>
+		<tr ng-repeat ="cliente in clientes">
+			<td>{{cliente.nome}}</td>
+			<td>{{cliente.codigo}}</td>
+		</tr>
+	</table>
+</div>
+
+</body>
 </html>

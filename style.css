@@ -1,0 +1,13 @@
+/* CSS Document*/
+
+.jumbotron {
+	width: 400px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+}
+
+.table {
+	margin-top: 35px;
+}
