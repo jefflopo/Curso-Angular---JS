@@ -1,3 +1,4 @@
+
 /* CSS Document*/
 
 .jumbotron {
@@ -6,8 +7,14 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
 }
 
 .table {
-	margin-top: 35px;
+    margin-top: 35px;
+}
+
+.form-control {
+    margin-bottom: 10px;
 }

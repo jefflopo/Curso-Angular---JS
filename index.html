@@ -13,30 +13,43 @@
         angular.module("CadClientes", []);
         angular.module("CadClientes").controller("CadClientesCtrl", 
         	function( $scope ){
-        		$scope.app = "Cadastro de Clientes";
-        		$scope.clientes = [
-        			{nome:"Jefferson", codigo: 001},
-        			{nome:"Paulo", codigo: 002},
-        			{nome:"Sandy", codigo: 003},
-        			{nome:"Heloisa", codigo: 004},
-        		];
+                    $scope.app = "Cadastro de Clientes";
+                    $scope.clientes = [
+                        {nome:"Jefferson", codigo: 001},
+                        {nome:"Paulo", codigo: 002},
+                        {nome:"Sandy", codigo: 003},
+                        {nome:"Heloisa", codigo: 004}
+                    ];
+                    
+                    $scope.addCliente = function() {
+                        $scope.clientes.push( { nome: $scope.nome, codigo: $scope.codigo } );
+                        delete.$scope.cliente;
+                    };
         });
     </script>
 
 </head>
 <body ng-controller = "CadClientesCtrl">
-<!--  <div class="jumbotron"><h4 ng-bind = "app"></h4></div> -->
 <div class="jumbotron"><h3>{{app}}</h3>
 	<table class="table table-striped">
 		<tr>
-			<td><b>Nome</b></td>
-			<td><b>Código</b></td>
+                    <td><b>Nome</b></td>
+                    <td><b>Código</b></td>
 		</tr>
 		<tr ng-repeat ="cliente in clientes">
-			<td>{{cliente.nome}}</td>
-			<td>{{cliente.codigo}}</td>
+                    <td> {{cliente.nome}} </td>
+                    <td> {{cliente.codigo}} </td>
 		</tr>
 	</table>
+        <hr>
+        
+        <input class="form-control" type="text" ng-model="nome" placeholder="Nome">
+        <input class="form-control" type="text" ng-model="codigo" placeholder="Código">
+            
+        <button class="btn btn-primary btn-block" ng-click="addCliente()"    
+                ng-disabled="!cliente.nome || !cliente.codigo">
+            Adicionar Cliente
+        </button>
 </div>
 
 </body>
