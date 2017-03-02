@@ -70,20 +70,21 @@
             </table>
             <hr>
             
-            {{cliente}}
+            <form name="clienteForm">
+                <input class="form-control" type="text" ng-model="cliente.nome" placeholder="Nome" ng-required="true">
+                <input class="form-control" type="text" ng-model="cliente.codigo" placeholder="Código" ng-required="true">
+
+                <select class="form-control"ng-model="cliente.tipoClientes" 
+                        ng-options="tipoCliente.tipo group by tipoCliente.local for tipoCliente in tipoClientes"
+                        ng-required="true">
+                    <option value="">Selecione o Tipo de Cliente</option>
+                </select>
+            </form>
             
-            <hr>
             
-            <input class="form-control" type="text" ng-model="cliente.nome" placeholder="Nome">
-            <input class="form-control" type="text" ng-model="cliente.codigo" placeholder="Código">
-            
-            <select class="form-control"ng-model="cliente.tipoClientes" 
-                    ng-options="tipoCliente.tipo group by tipoCliente.local for tipoCliente in tipoClientes">
-                <option value="">Selecione o Tipo de Cliente</option>
-            </select>
 
             <button class="btn btn-primary btn-block" ng-click="addCliente(cliente)" 
-                    ng-disabled="!cliente.nome || !cliente.codigo">
+                    ng-disabled="clienteForm.$invalid">
                 Adicionar Cliente
             </button>
             
@@ -94,8 +95,8 @@
             
     </div>
     
-    <div class="rodape">
-        jefferson moreira lopo
+    <div ng-include="'rodape.html'">
+        
     </div>
 
 </body>
