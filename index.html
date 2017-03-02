@@ -33,6 +33,18 @@
                         delete $scope.cliente;
                     };
                     
+                    $scope.apagarCliente = function( clientes ) {
+                        $scope.clientes = clientes.filter( function(cliente) {
+                            if( !cliente.selecionado ) return cliente;
+                        });
+                    };
+                    
+                    $scope.temClienteSelecionado = function(clientes){
+                        return clientes.some(function( cliente ) {
+                            return cliente.selecionado;
+                        });
+                    }
+                    
                     $scope.classe1 = "selecionado";
                     $scope.classe2 = "negrito";
                 }
@@ -49,7 +61,7 @@
                         <td><b>Código</b></td>
                         <td><b>Tipo Cliente</b></td>
                     </tr>
-                    <tr ng-class="{selecionado: cliente.selecionado}" ng-repeat ="cliente in clientes">
+                    <tr ng-class="{'selecionado negrito': cliente.selecionado}" ng-repeat ="cliente in clientes">
                         <td> <input type="checkbox" ng-model="cliente.selecionado"> </td>
                         <td> {{cliente.nome}} </td>
                         <td> {{cliente.codigo}} </td>
@@ -73,6 +85,11 @@
             <button class="btn btn-primary btn-block" ng-click="addCliente(cliente)" 
                     ng-disabled="!cliente.nome || !cliente.codigo">
                 Adicionar Cliente
+            </button>
+            
+            <button class="btn btn-danger btn-block" ng-click="apagarCliente(clientes)"
+                    ng-disabled="!temClienteSelecionado(clientes)">
+                Apagar Cliente
             </button>
             
     </div>
