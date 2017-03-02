@@ -54,7 +54,7 @@
 </head>
 <body ng-controller = "CadClientesCtrl">
     <div class="jumbotron"><h3>{{app}}</h3>
-            <table class="table">
+            <table ng-show="clientes.length > 0" class="table">
                     <tr>
                         <td> </td>
                         <td><b>Nome</b></td>
@@ -88,10 +88,14 @@
             </button>
             
             <button class="btn btn-danger btn-block" ng-click="apagarCliente(clientes)"
-                    ng-disabled="!temClienteSelecionado(clientes)">
+                    ng-show="temClienteSelecionado(clientes)">
                 Apagar Cliente
             </button>
             
+    </div>
+    
+    <div class="rodape">
+        jefferson moreira lopo
     </div>
 
 </body>
