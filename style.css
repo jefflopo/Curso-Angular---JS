@@ -18,3 +18,11 @@
 .form-control {
     margin-bottom: 10px;
 }
+
+.selecionado {
+    background-color: #BBC9FC;
+}
+
+.negrito {
+    font-weight: bold;
+}
