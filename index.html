@@ -22,6 +22,7 @@
                     
                     $scope.addCliente = function( cliente ) {
                         $scope.clientes.push( angular.copy( cliente ) );
+                        delete $scope.cliente;
                     };
                 }
         );
@@ -45,7 +46,8 @@
             <input class="form-control" type="text" ng-model="cliente.nome" placeholder="Nome">
             <input class="form-control" type="text" ng-model="cliente.codigo" placeholder="Código">
 
-            <button class="btn btn-primary btn-block" ng-click="addCliente(cliente)">
+            <button class="btn btn-primary btn-block" ng-click="addCliente(cliente)" 
+                    ng-disabled="!cliente.nome || !cliente.codigo">
                 Adicionar Cliente
             </button>
     </div>
