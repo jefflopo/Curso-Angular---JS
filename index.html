@@ -20,36 +20,36 @@
                         {nome:"Heloisa", codigo: 004}
                     ];
                     
-                    $scope.addCliente = function() {
-                        $scope.clientes.push( { nome: $scope.nome, codigo: $scope.codigo } );
-                        delete.$scope.cliente;
+                    $scope.addCliente = function( cliente ) {
+                        $scope.clientes.push( angular.copy( cliente ) );
                     };
-        });
+                }
+        );
     </script>
 
 </head>
 <body ng-controller = "CadClientesCtrl">
-<div class="jumbotron"><h3>{{app}}</h3>
-	<table class="table table-striped">
-		<tr>
-                    <td><b>Nome</b></td>
-                    <td><b>Código</b></td>
-		</tr>
-		<tr ng-repeat ="cliente in clientes">
-                    <td> {{cliente.nome}} </td>
-                    <td> {{cliente.codigo}} </td>
-		</tr>
-	</table>
-        <hr>
-        
-        <input class="form-control" type="text" ng-model="nome" placeholder="Nome">
-        <input class="form-control" type="text" ng-model="codigo" placeholder="Código">
-            
-        <button class="btn btn-primary btn-block" ng-click="addCliente()"    
-                ng-disabled="!cliente.nome || !cliente.codigo">
-            Adicionar Cliente
-        </button>
-</div>
+    <div class="jumbotron"><h3>{{app}}</h3>
+            <table class="table table-striped">
+                    <tr>
+                        <td><b>Nome</b></td>
+                        <td><b>Código</b></td>
+                    </tr>
+                    <tr ng-repeat ="cliente in clientes">
+                        <td> {{cliente.nome}} </td>
+                        <td> {{cliente.codigo}} </td>
+                    </tr>
+            </table>
+            <hr>
+
+            <input class="form-control" type="text" ng-model="nome" placeholder="Nome">
+            <input class="form-control" type="text" ng-model="codigo" placeholder="Código">
+
+            <button class="btn btn-primary btn-block" ng-click="addCliente(cliente)"    
+                    >
+                Adicionar Cliente
+            </button>
+    </div>
 
 </body>
 </html>
