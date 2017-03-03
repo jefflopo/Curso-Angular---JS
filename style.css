@@ -11,6 +11,17 @@
         padding-right: 20px;
 }
 
+.jumbotron h3 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    color: #FFF;
+    background-color: #acacac;
+    border-radius: 5px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+
 .table {
     margin-top: 35px;
 }
