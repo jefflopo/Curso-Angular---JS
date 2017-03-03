@@ -30,3 +30,21 @@
 .rodape {
     text-align: center;
 }
+
+.dir-alerta {
+    background-color: #f2dede;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dir-alerta-title {
+    color: #af4341;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.dir-alerta-msg {
+    color: #af4341;
+}
