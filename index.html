@@ -55,6 +55,11 @@
 </head>
 <body ng-controller = "CadClientesCtrl">
     <div class="jumbotron"><h3>{{app}}</h3>
+        <div class="dir-alerta">
+            <div class="dir-alerta-title">
+                Aconteceu um Problema!!!!
+            </div>
+        </div>
         <input type="text" class="form-control" ng-model="Buscar" placeholder="Busque Aqui">
             <table ng-show="clientes.length > 0" class="table">
                     <tr>
