@@ -54,6 +54,7 @@
 </head>
 <body ng-controller = "CadClientesCtrl">
     <div class="jumbotron"><h3>{{app}}</h3>
+        <input type="text" class="form-control" ng-model="Buscar" placeholder="Busque Aqui">
             <table ng-show="clientes.length > 0" class="table">
                     <tr>
                         <td> </td>
@@ -62,7 +63,8 @@
                         <td><b>Tipo Cliente</b></td>
                         <td><b>Data de Cadastro</b></td>
                     </tr>
-                    <tr ng-class="{'selecionado negrito': cliente.selecionado}" ng-repeat ="cliente in clientes">
+                    <tr ng-class="{'selecionado negrito': cliente.selecionado}" ng-repeat ="cliente in clientes 
+                                | filter: Buscar | orderBy: 'nome'">
                         <td> <input type="checkbox" ng-model="cliente.selecionado"> </td>
                         <td> {{cliente.nome | uppercase}} </td>
                         <td> {{cliente.codigo}} </td>
