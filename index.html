@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="angular/angular.js"></script>
+    <script src="angular/angular-locale_pt-br.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     
@@ -14,10 +15,10 @@
         	function( $scope ){
                     $scope.app = "Cadastro de Clientes";
                     $scope.clientes = [
-                        {nome:"Jefferson", codigo: 001, data: new Date()},
-                        {nome:"Paulo", codigo: 002, data: new Date()},
-                        {nome:"Sandy", codigo: 003, data: new Date()},
-                        {nome:"Heloisa", codigo: 004, data: new Date()}
+                        {nome:"Jefferson", codigo: 001, data: new Date(), valor: 100},
+                        {nome:"Paulo", codigo: 002, data: new Date(), valor: 457},
+                        {nome:"Sandy", codigo: 003, data: new Date(), valor: 589},
+                        {nome:"Heloisa", codigo: 004, data: new Date(), valor: 332}
                     ];
                     
                     $scope.tipoClientes = [
@@ -62,6 +63,7 @@
                         <td><b>Código</b></td>
                         <td><b>Tipo Cliente</b></td>
                         <td><b>Data de Cadastro</b></td>
+                        <td><b>Valor da Compra</b></td>
                     </tr>
                     <tr ng-class="{'selecionado negrito': cliente.selecionado}" ng-repeat ="cliente in clientes 
                                 | filter: Buscar | orderBy: 'nome'">
@@ -70,6 +72,7 @@
                         <td> {{cliente.codigo}} </td>
                         <td> {{cliente.tipoClientes.tipo}} </td>
                         <td> {{cliente.data | date:'dd/MM/yyyy'}} </td>
+                        <td> {{cliente.valor | currency}} </td>
                     </tr>
             </table>
             <hr>
