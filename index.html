@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="angular/angular.js"></script>
     <script src="angular/angular-locale_pt-br.js"></script>
+    <script src="diretivas/dir-alerta.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     
@@ -55,17 +56,9 @@
 </head>
 <body ng-controller = "CadClientesCtrl">
     <div class="jumbotron"><h3>{{app}}</h3>
-        <div class="dir-alerta">
-            
-            <div class="dir-alerta-title">
-                Aconteceu um Problema!!!!
-            </div>
-            
-            <div class="dir-alerta-msg">
-                Não foi possível carregar os dados
-            </div>
-            
-        </div>
+        
+        <div dir-alerta> </div>
+        
         <input type="text" class="form-control" ng-model="Buscar" placeholder="Busque Aqui">
             <table ng-show="clientes.length > 0" class="table">
                     <tr>
